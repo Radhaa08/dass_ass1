@@ -9,6 +9,8 @@ const Signup = () => {
 		lastName: "",
 		email: "",
 		password: "",
+        age:"",
+        Contact_Number:"",
 	});
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -19,6 +21,11 @@ const Signup = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+        if (!data.email.endsWith("iiit.ac.in")) {
+            setError("Email must be from iiit.ac.in domain");
+            return;
+          }
+
 		try {
 			const url = "http://localhost:8080/api/users";
 			const { data: res } = await axios.post(url, data);
@@ -39,10 +46,11 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-					<h1>Welcome Back</h1>
+					<h1>Welcome</h1>
+					<h1> Back ! </h1>
 					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
-							Sing in
+						<button className={styles.white_btn}>
+							SIGN IN
 						</button>
 					</Link>
 				</div>
@@ -56,7 +64,8 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.firstName}
 							required
-							className={styles.input}
+							className={styles.createaccount}
+							
 						/>
 						<input
 							type="text"
@@ -65,7 +74,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.lastName}
 							required
-							className={styles.input}
+							className={styles.createaccount}
 						/>
 						<input
 							type="email"
@@ -74,7 +83,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.email}
 							required
-							className={styles.input}
+							className={styles.createaccount}
 						/>
 						<input
 							type="password"
@@ -83,11 +92,30 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
+							className={styles.createaccount}
 						/>
+                        <input
+                            type="number"
+                            placeholder="Age"
+                            name="age"
+                            onChange={handleChange}
+                            value={data.age}
+                            required
+                            className={styles.createaccount}
+                        />
+                        <input
+                            type="number"
+                            placeholder="Contact Number"
+                            name="Contact_Number"
+                            onChange={handleChange}
+                            value={data.Contact_Number}
+                            required
+                            className={styles.createaccount}
+                        />
+                        
 						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
-							Sing Up
+						<button className={styles.green_btn}>
+							SIGN UP
 						</button>
 					</form>
 				</div>
