@@ -16,7 +16,7 @@ function ItemList() {
         const fetchData = async () => {
             try {
                 // Fetch items
-                const itemsResponse = await axios.get('http://localhost:8080/api/items');
+                const itemsResponse = await axios.get('/api/items');
                 setItems(itemsResponse.data);
                 setFilteredItems(itemsResponse.data);
 
@@ -25,7 +25,7 @@ function ItemList() {
                 setCategories(Array.from(allCategories));
 
                 // Fetch users (sellers)
-                const usersResponse = await axios.get('http://localhost:8080/api/users');
+                const usersResponse = await axios.get('/api/users');
                 const usersData = usersResponse.data.reduce((acc, user) => {
                     acc[user._id] = user; // Store users by their userId
                     return acc;
