@@ -19,7 +19,7 @@ function DeliverItems() {
                     currentUserId = decoded._id;
                 }
                 console.log("Current User ID:", currentUserId);
-                const response = await axios.get("http://localhost:8080/api/orders/seller", {
+                const response = await axios.get("/api/orders/seller", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
