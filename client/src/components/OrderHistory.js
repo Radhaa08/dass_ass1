@@ -24,7 +24,7 @@ function OrderHistory() {
                 setCurrentUserId(decoded._id);
                 console.log(decoded._id);
                 // Fetch pending orders
-                const pendingResponse = await axios.get(`http://localhost:8080/api/orders/pending/${decoded._id}`, {
+                const pendingResponse = await axios.get(`/api/orders/pending/${decoded._id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -32,7 +32,7 @@ function OrderHistory() {
                 setPendingOrders(pendingResponse.data);
                 console.log(pendingResponse.data);
                 // Fetch bought orders
-                const boughtResponse = await axios.get(`http://localhost:8080/api/orders/bought/${decoded._id}`, {
+                const boughtResponse = await axios.get(`/api/orders/bought/${decoded._id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -40,7 +40,7 @@ function OrderHistory() {
                 setBoughtOrders(boughtResponse.data);
                 console.log(boughtResponse.data);
                 // Fetch sold orders
-                const soldResponse = await axios.get(`http://localhost:8080/api/orders/sold/${decoded._id}`, {
+                const soldResponse = await axios.get(`/api/orders/sold/${decoded._id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -58,7 +58,7 @@ function OrderHistory() {
         try {
             console.log(orderId);
             const response = await axios.post(
-                `http://localhost:8080/api/orders/${orderId}/otp`
+                `/api/orders/${orderId}/otp`
             );
             const { otp } = response.data;
 
