@@ -23,7 +23,7 @@ const Login = () => {
 			return;
 		}
 		try {
-			const url = "http://localhost:8080/api/auth";
+			const url = "/api/auth";
 			const { data: res } = await axios.post(url, {
                 email: data.email,
                 password: data.password,
