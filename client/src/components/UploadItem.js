@@ -32,7 +32,7 @@ const UploadItem = () => {
             };
 
             const response = await axios.post(
-                "http://localhost:8080/api/items",
+                "/api/items",
                 updatedFormData,
                 {
                     headers: { Authorization: `Bearer ${token}` },
