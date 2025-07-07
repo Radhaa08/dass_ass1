@@ -42,7 +42,7 @@ function DeliverItems() {
             const otp = otpInputs[orderId];
             console.log(otp);
             console.log(orderId); // Get OTP for the specific order
-            const response = await axios.post(`http://localhost:8080/api/orders/complete`, {
+            const response = await axios.post(`/api/orders/complete`, {
                 orderId,
                 otp,
             });
