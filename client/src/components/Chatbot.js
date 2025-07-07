@@ -26,7 +26,7 @@ const Chatbot = () => {
 
         try {
             // Call backend API with full conversation history
-            const response = await axios.post("http://localhost:8080/api/chat", { conversation: updatedConversation });
+            const response = await axios.post("/api/chat", { conversation: updatedConversation });
             const reply = response.data.reply;
 
             // Update conversation with Gemini's reply
