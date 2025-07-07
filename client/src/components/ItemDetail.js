@@ -19,7 +19,7 @@ function ItemDetail() {
                     setCurrentUserId(decoded._id);
                 }
 
-                const itemResponse = await axios.get(`http://localhost:8080/api/items/${id}`, {
+                const itemResponse = await axios.get(`/api/items/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
