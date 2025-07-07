@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 // implement google recaptcha
 import ReCAPTCHA from "react-google-recaptcha";
-import { set } from "mongoose";
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
